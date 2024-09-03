@@ -5,6 +5,7 @@
         <style>
             :root {
                 --contrast-color: #00F0FF;
+                --opacity-strength: 0.5;
             }
 
             svg {
@@ -16,19 +17,26 @@
             #Tire_inside_2{
                 fill: var(--contrast-color);
             }
-            #Road, #Road2, #Road3{
+            #SpeedStripes, #SpeedStripes2, #Road2{
+                stroke: var(--contrast-color);
+            }
+            #SpeedStripes, #SpeedStripes2{
+                opacity: var(--opacity-strength);
+            }
+
+            #Road, #Road2, #Road3, #SpeedStripes, #SpeedStripes2{
                 transition: all 1.5s ease;
             }
-            #Road2, #Road3{
+            #SpeedStripes2{
+                transition-delay: 0.5s;
+            }
+            #Road2, #Road3, #SpeedStripes, #SpeedStripes2{
                 transform: translateX(100%);
             }
-            svg:hover #Road{
+            svg:hover #Road, svg:hover #SpeedStripes{
                 transform: translateX(-100%);
             }
-            svg:hover #Road2{
-                transform: translateX(0%);
-            }
-            svg:hover #Road2{
+            svg:hover #Road2, svg:hover #SpeedStripes2{
                 transform: translateX(-100%);
             }
             svg:hover #Road3{
@@ -40,6 +48,16 @@
         <svg width="100" height="120" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="Car1">
             <line id="Car_bottom" x1="19" y1="62.5" x2="83" y2="62.5" stroke="black"/>
+            <g id="SpeedStripes">
+                <line id="Speed_stripes1" x1="30" y1="50" x2="55" y2="50"/>
+                <line id="Speed_stripes2" x1="25" y1="54" x2="50" y2="54"/>
+                <line id="Speed_stripes3" x1="35" y1="58" x2="60" y2="58"/>
+            </g>
+            <g id="SpeedStripes2">
+                <line id="Speed_stripes1" x1="30" y1="40" x2="55" y2="40"/>
+                <line id="Speed_stripes2" x1="25" y1="44" x2="50" y2="44"/>
+                <line id="Speed_stripes3" x1="35" y1="48" x2="60" y2="48"/>
+            </g>
             <g id="Tires">
             <g id="Tire_right">
             <circle id="Tire_inside" cx="71" cy="62" r="1" />
@@ -54,9 +72,9 @@
             </g>
             </g>
             </g>
-            <line id="Road" x1="15" y1="66.5" x2="85" y2="66.5" stroke="green"/>
+            <line id="Road" x1="15" y1="66.5" x2="85" y2="66.5" stroke="black"/>
             <line id="Road3" x1="15" y1="66.5" x2="85" y2="66.5" stroke="blue"/>
-            <line id="Road2" x1="30" y1="66.5" x2="50" y2="66.5" stroke="red"/>
+            <line id="Road2" x1="30" y1="66.5" x2="50" y2="66.5"/>
             <g id="Car">
             <path id="Car_Outline" d="M82.5 62.5C82.5 58.9 81.5 58 81 58C81 53.6 71.3334 52.1667 66.5 52L54 45C49.6 43.4 34.1667 45 27 46C23 46 21 53.3333 20.5 57L19 58L20 62.5" stroke="black"/>
             <path id="Car_left_window" d="M42 45L43 51.5L66.5 52" stroke="black"/>
